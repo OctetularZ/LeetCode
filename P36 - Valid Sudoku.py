@@ -21,29 +21,40 @@ def isValidSudoku(board):
     current_row = 0
     current_col = 0
     square_grid = []
-    while current_row != 4:
-        if current_row % 3 != 0 or current_row == 0:
-            print("yes")
-            square_grid.append(board[current_row][current_col])
-            square_grid.append(board[current_row][current_col + 1])
-            square_grid.append(board[current_row][current_col + 2])
-            current_row += 1
-        elif current_row % 3 == 0:
-            current_row += 1
-            current_col += 2
-    print(square_grid)
+    while current_row != 9:
+        square_grid.append(board[current_row][current_col])
+        square_grid.append(board[current_row][current_col + 1])
+        square_grid.append(board[current_row][current_col + 2])
+        current_row += 1
+        if current_row % 3 == 0 and current_col != 6:
+            if current_row == 3:
+                current_row = 0
+            elif current_row == 6:
+                current_row = 3
+            else:
+                current_row = 6
+            current_col += 3
+        elif current_col == 6 and current_row % 3 == 0:
+            current_col = 0
+        if len(square_grid) == 9:
+            square_grid = list(filter(".".__ne__, square_grid))
+            if len(square_grid) != len(set(square_grid)):
+                return False
+            square_grid.clear()
+        else:
+            pass
 
     return True
 
 
 test_board = \
-[["5","3",".",".","7",".",".",".","."]
-,["6",".",".","1","9","5",".",".","."]
-,[".","5","8",".",".",".",".","6","."]
-,["8",".",".",".","6",".",".",".","3"]
-,["4",".",".","8",".","3",".",".","1"]
-,["7",".",".",".","2",".",".",".","6"]
-,[".","6",".",".",".",".","2","8","."]
-,[".",".",".","4","1","9",".",".","5"]
-,[".",".",".",".","8",".",".","7","9"]]
+[[".",".","4",".",".",".","6","3","."],
+ [".",".",".",".",".",".",".",".","."],
+ ["5",".",".",".",".",".",".","9","."],
+ [".",".",".","5","6",".",".",".","."],
+ ["4",".","3",".",".",".",".",".","1"],
+ [".",".",".","7",".",".",".",".","."],
+ [".",".",".","5",".",".",".",".","."],
+ [".",".",".",".",".",".",".",".","."],
+ [".",".",".",".",".",".",".",".","."]]
 print(isValidSudoku(test_board))
