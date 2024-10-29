@@ -10,13 +10,19 @@ def isValidSudoku(board):
             current_row += 1
             current_col_next = 1
     current_col = 0
+    current_row = 0
     current_row_next = 1
-    while current_col != 8:
-        if (board[0][current_col] == board[current_row_next][current_col]) and board[0][current_col] != "." and board[current_row_next][current_col] != ".":
+    while current_col != 9:
+        if (board[current_row][current_col] == board[current_row_next][current_col]) and board[current_row][current_col] != "." and board[current_row_next][current_col] != ".":
             return False
         current_row_next += 1
-        if current_row_next == 8:
+        print(current_row_next)
+        if current_row_next == 9 and current_row != 8:
+            current_row += 1
+            current_row_next = current_row + 1
+        elif current_row == 8:
             current_col += 1
+            current_row = 0
             current_row_next = 1
     current_row = 0
     current_col = 0
@@ -48,13 +54,13 @@ def isValidSudoku(board):
 
 
 test_board = \
-[[".",".","4",".",".",".","6","3","."],
- [".",".",".",".",".",".",".",".","."],
- ["5",".",".",".",".",".",".","9","."],
- [".",".",".","5","6",".",".",".","."],
- ["4",".","3",".",".",".",".",".","1"],
- [".",".",".","7",".",".",".",".","."],
- [".",".",".","5",".",".",".",".","."],
- [".",".",".",".",".",".",".",".","."],
- [".",".",".",".",".",".",".",".","."]]
+[["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
 print(isValidSudoku(test_board))
