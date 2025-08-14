@@ -1,4 +1,4 @@
-def scoreOfString(self, s: str) -> int:
+def scoreOfString(s: str) -> int:
     n = len(s)
     total = 0
 
