@@ -18,16 +18,13 @@ def binary_search(arr, target):
 
 def find_pairs(arr, k):
   pairs = []
+  arr.sort()
   
   for i in range(len(arr)):
-    print(arr[i])
     m = binary_search(arr, arr[i] - k)
-    n = binary_search(arr, k + arr[i])
 
     if m == True:
-      pairs.append([arr[i], arr[i] - k])
-    if n == True:
-      pairs.append([arr[i], k + arr[i]])
+      pairs.append([arr[i] - k, arr[i]])
   
   return pairs
 
