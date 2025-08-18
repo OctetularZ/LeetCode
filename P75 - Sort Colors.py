@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def partition(self, arr, low, high):
         pivot = arr[high]
