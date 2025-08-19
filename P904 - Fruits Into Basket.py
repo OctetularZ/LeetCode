@@ -26,3 +26,7 @@ class Solution:
 # Add fruit to basket
 # While there are more than two types of fruits in basket, Keep taking away left most fruit until it equals 0, then remove fruit from basket, converge window by 1 (start += 1)
 # update maximum number of fruits
+
+# Length of window at any time = end - start + 1
+# If length of subsequence is known, use fixed window, otherwise use variable-length window
+# For questions when searching for a continous subsequence in an array or a string that satisfies a specific constraint
