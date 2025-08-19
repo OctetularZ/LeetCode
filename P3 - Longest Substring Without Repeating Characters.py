@@ -20,3 +20,4 @@ class Solution:
 # This was an annoying concept which had me stuck for absolutely no reason. This is also why using count is better as this isnt a problem.
 # Removing all instances will not allow start += 1, the window to be converged as much as needed. 
 # It was actually only allow the window to converge once as all instances can be removed 'once'. Messing up the whole algorithm.
+
