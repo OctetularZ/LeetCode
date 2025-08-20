@@ -7,6 +7,9 @@ class Solution:
         max_points = 0
         array_sum = sum(cardPoints)
         sub_array_sum = 0
+
+        if k >= len(cardPoints):
+            return array_sum
         
         for end in range(len(cardPoints)):
             sub_array_sum += cardPoints[end]
@@ -16,13 +19,7 @@ class Solution:
                 sub_array_sum -= cardPoints[start]
                 start += 1
 
-        
-        first_k_elements = sum(cardPoints[0: k])
-        max_points = max(max_points, first_k_elements)
-
-
         return max_points
-                    
 
 
 
