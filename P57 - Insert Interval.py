@@ -7,27 +7,21 @@ class Solution:
             return [newInterval]
 
         intervals.append(newInterval)
-        sortedIntervals = sorted(intervals, key=lambda x: x[0])
-
-        intervalAdded = []
-
-        for interval in sortedIntervals:
-            if not intervalAdded or interval[0] > intervalAdded[-1][1]:
-                intervalAdded.append(interval)
-            else:
-                intervalAdded[-1][1] = max(interval[1], intervalAdded[-1][1])
-            print(intervalAdded)
-
-        return intervalAdded
+        sortedInterval = sorted(intervals, key=lambda x: x[0])
         
+        merged = []
+
+        for interval in sortedInterval:
+            if not merged or interval[0] > merged[-1][1]:
+                merged.append(interval)
+            else:
+                merged[-1][1] = max(merged[-1][1], interval[1])
+        
+        return merged
 
 
-
-# If intervals is empty, return newInterval
-# Add new interval to intervals
-# Sort intervals by start time
-# For loop through intervals, starting from second interval
-# If current interval start time is less than previous interval end time, this is an overlap
-# So set previous interval's end time to max(between both intervals)
-# Add to new array
-# Return new array
+# Edge case -intervals = 0, return [newInterval]
+# Added new interval to intervals
+# Create a new array which has the intervals array but sorted
+# if new intervals array is empty or there is no overlap with interval in new interval array, add interval to new intervals
+# Otherwise, if there is an interval, add to new interval array by updating the end time of the previous interval with the max between both intervals
