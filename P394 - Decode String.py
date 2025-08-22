@@ -5,7 +5,7 @@ class Solution:
         current_string = ""
 
         for char in s:
-            if char == "[": # If start of new letters:
+            if char == "[": # If start of new sequence:
                 stack.append(current_string) # Add current string to stack
                 stack.append(current_number) # Add current number to stack
                 current_string = "" # Reset both
