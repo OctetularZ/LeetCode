@@ -22,4 +22,4 @@ class Solution:
 # Loop through brackets
 # If bracket not in stacks keys, add to stack, otherwise, don't add to stack and pop from stack
 # Return True is stack is empty
-# Return False, if close bracket doensn't match bracket on stack
+# Return False, if close bracket doesn't match bracket on stack
