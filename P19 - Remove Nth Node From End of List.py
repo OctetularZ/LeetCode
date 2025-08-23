@@ -46,7 +46,7 @@ class Solution:
         return head
         
 
-# Use a counter
+# Use a counter, i = 1
+# Find length of list, target = length of list - n + 1
 # Traverse through linked list
-# On each traversal, check if counter = n, if so remove the node, otherwise add one to counter
-# Counter starts at 1
+# On each traversal, check if target = i, if so remove the node, otherwise add one to counter
