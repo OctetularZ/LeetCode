@@ -1,5 +1,6 @@
 import math
 from typing import List
+import heapq
 
 
 # Sorting solution
