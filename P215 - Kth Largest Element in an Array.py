@@ -1,4 +1,4 @@
-import heapq
+import heapq # Leetcode already has heapq imported
 from typing import List
 
 class Solution:
