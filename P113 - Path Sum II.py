@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 
 
 class Solution:
@@ -38,3 +38,7 @@ class Solution:
 # An array will be passed down, as we go down, append current nodes value to array
 # Use a helper function to pass down an array
 # At each leaf node, check if sum of array is equal to target, if so, add to global array
+
+# Important Lesson - When you append a list to a list, it is copied by reference. So if you modify that list you appended after, it'll be affected in the final array
+# I had no idea but that's why I do these. To learn.
+# Advice - Instead of appending list directly (i.e. list1.append(list2), use list.copy() (i.e. list1.append(list2.copy() )))
