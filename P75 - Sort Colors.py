@@ -2,24 +2,21 @@ from typing import List
 
 
 class Solution:
-    def partition(self, arr, low, high):
-        pivot = arr[high]
-        i = low - 1
+    def sortColors(self, nums: List[int]) -> None:
+        l, r = 0, len(nums) - 1
+        i = 0
 
-        for j in range(low, high):
-            if arr[j] <= pivot:
-                i += 1
-                arr[i], arr[j] = arr[j], arr[i]
-
-        arr[high], arr[i + 1] = arr[i + 1], arr[high]
-        return i + 1
-
-    def sortColors(self, nums: List[int], low=0, high=None) -> None:
-        if high is None:
-            high = len(nums) - 1
-
-        if low < high:
-            pivot_index = self.partition(nums, low, high)
-            self.sortColors(nums, low, pivot_index - 1)
-            self.sortColors(nums, pivot_index + 1, high)
-        
+        while i <= r:
+            if nums[i] == 0:
+                temp = nums[l]
+                nums[l] = nums[i]
+                nums[i] = temp
+                l += 1
+            elif nums[i] == 2:
+                temp = nums[r]
+                nums[r] = nums[i]
+                nums[i] = temp
+                r -= 1
+                i -= 1
+            i += 1
+        return nums
