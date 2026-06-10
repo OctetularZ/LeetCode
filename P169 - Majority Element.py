@@ -1,14 +1,11 @@
-def majorityElement(nums):
-    nums_dict = {}
-    keys = []
-    for i in nums:
-        if nums_dict.get(i) is None:
-            nums_dict[i] = nums.count(i)
-            keys.append(i)
-    for key in keys:
-        if nums_dict[key] > (len(nums) / 2):
-            return key
+from collections import Counter
+from typing import List
 
 
-lst = [3, 2, 3]
-print(majorityElement(lst))
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        count = Counter(nums)
+
+        for [key, value] in count.items():
+            if count[key] > len(nums)/2:
+                return key
