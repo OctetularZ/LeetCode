@@ -1,14 +1,9 @@
-def removeElement(nums, val):
-    current_index = 0
-    for i in range(len(nums)):
-        if nums[current_index] == val:
+from typing import List
+
+
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        while val in nums:
             nums.remove(val)
-            current_index -= 1
-        current_index += 1
-    print(nums)
 
-    k = len(nums)
-    return k
-
-
-print(removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2))
+        return len(nums)
