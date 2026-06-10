@@ -19,4 +19,3 @@ class Solution:
                 r -= 1
                 i -= 1
             i += 1
-        return nums
