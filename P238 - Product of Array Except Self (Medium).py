@@ -1,18 +1,16 @@
 from typing import List
 
 
-def productExceptSelf(self, nums: List[int]) -> List[int]:
-    n = len(nums)
-    prefix = 1
-    postfix = 1
-    result = [0] * n
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        ans = [0] * len(nums)
 
-    for i in range(n):
-        result[i] = prefix
-        prefix *= nums[i]
+        for i in range(len(nums)):
+            prod = 1
+            for j in range(len(nums)):
+                if i == j:
+                    continue
+                prod *= nums[j]
+            ans[i] = prod
 
-    for i in range(n - 1, -1, -1):
-        result[i] *= postfix
-        postfix *= nums[i]
-
-    return result
+        return ans
