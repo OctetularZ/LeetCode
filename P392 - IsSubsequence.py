@@ -1,20 +1,24 @@
-def isSubsequence(s, t):
-    t_pointer = 0
-    s_pointer = 0
-    final_string = ""
-    while s_pointer < len(s) and t_pointer < len(t):
-        if s[s_pointer] == t[t_pointer]:
-            final_string += t[s_pointer]
-            s_pointer += 1
-            t_pointer += 1
-        else:
-            t_pointer += 1
-    if s_pointer == len(s):
-        return True
-    else:
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        if not s:
+            return True
+
+        l, r = 0, 0
+
+        while l <= len(s) and r < len(t):
+            if s[l] == t[r]:
+                l += 1
+
+            if l == len(s):
+                return True
+
+            r += 1
+
         return False
 
+# O(n) | where 'n' is the length of s (or t), solution - Loop through every letter in s and then every letter in t
+# If the letter of s is available in t, then continue. If we reach the end of s, then we can return true
+# Otherwise if we reach the end of t and we still haven't reached the end of s, then we can return False.
 
-test_string_sub = "abc"
-test_string = "ahbgdc"
-print(isSubsequence(test_string_sub, test_string))
+# Another solution is to use a hashmap storing key-value pairs of a character and its positions.
+# This method will still be O(n) in respect to length of 's' as we still need to go through every letter
